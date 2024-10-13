@@ -16,4 +16,10 @@ class KafkaProperties {
 
     @Value("${spring.kafka.producer.properties.request.timeout.ms}")
     private String requestTimeoutMs;
+
+    @Value("${spring.kafka.producer.properties.enable.idempotence}")
+    private Boolean isIdempotent;
+
+    @Value("${spring.kafka.producer.properties.max.in.flight.requests.per.connection}")
+    private Integer maxInFlightRequestsPerConnection;
 }

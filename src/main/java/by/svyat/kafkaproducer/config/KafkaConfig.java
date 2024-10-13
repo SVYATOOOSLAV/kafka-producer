@@ -35,6 +35,8 @@ public class KafkaConfig {
         config.put(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, kafkaProperties.getDeliveryTimeoutMs());
         config.put(ProducerConfig.LINGER_MS_CONFIG, kafkaProperties.getLingerMs());
         config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, kafkaProperties.getRequestTimeoutMs());
+        config.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, kafkaProperties.getIsIdempotent());
+        config.put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, kafkaProperties.getMaxInFlightRequestsPerConnection());
 
         return config;
     }
