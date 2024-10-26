@@ -1,6 +1,6 @@
 package by.svyat.kafkaproducer.config;
 
-import by.svyat.kafkaproducer.producer.event.ProductCreatedEvent;
+import by.svyat.kafkacommon.event.ProductCreatedEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.apache.kafka.clients.admin.NewTopic;

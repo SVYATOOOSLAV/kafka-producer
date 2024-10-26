@@ -1,8 +1,8 @@
 package by.svyat.kafkaproducer.service.impl;
 
+import by.svyat.kafkacommon.event.ProductCreatedEvent;
 import by.svyat.kafkaproducer.controller.common.CreateProductDto;
 import by.svyat.kafkaproducer.producer.ProductProducer;
-import by.svyat.kafkaproducer.producer.event.ProductCreatedEvent;
 import by.svyat.kafkaproducer.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

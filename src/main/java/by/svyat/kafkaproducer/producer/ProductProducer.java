@@ -1,7 +1,7 @@
 package by.svyat.kafkaproducer.producer;
 
+import by.svyat.kafkacommon.event.ProductCreatedEvent;
 import by.svyat.kafkaproducer.exception.KafkaInternalException;
-import by.svyat.kafkaproducer.producer.event.ProductCreatedEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
