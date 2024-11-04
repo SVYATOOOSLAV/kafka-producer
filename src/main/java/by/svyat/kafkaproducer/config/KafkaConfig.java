@@ -2,7 +2,6 @@ package by.svyat.kafkaproducer.config;
 
 import by.svyat.kafkacommon.event.ProductCreatedEvent;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -19,7 +18,6 @@ import java.util.Map;
 @Configuration
 @EnableConfigurationProperties(value = KafkaProducerConfig.class)
 @RequiredArgsConstructor
-@Setter
 public class KafkaConfig {
 
     private final KafkaProperties kafkaProperties;
