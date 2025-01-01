@@ -56,7 +56,7 @@ public class KafkaConfig {
                 .replicas(3)
                 .configs(
                         Map.of(
-                                "min.insync.replicas", "2" // Count of sync replicas with leader min 2 (parameter ISR)
+                                "min.insync.replicas", "1" // Count of sync replicas with leader min 1 (parameter ISR)
                         )
                 )
                 .build();

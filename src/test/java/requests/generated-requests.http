@@ -7,3 +7,6 @@ Content-Type: application/json
   "price": 200,
   "quantity": 10
 }
+
+###
+GET http://localhost:9090/response/500
