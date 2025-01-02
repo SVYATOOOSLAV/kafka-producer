@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
     private final ProductProducer productProducer;
 
     @Override
-    public String createProduct(CreateProductDto product) {
+    public String createProduct(String messageId, CreateProductDto product) {
         log.info("Started creating product");
 
         String productId = UUID.randomUUID().toString();
@@ -30,18 +30,18 @@ public class ProductServiceImpl implements ProductService {
                 .quantity(product.getQuantity())
                 .build();
 
-        sendEventSync(event);
+        sendEventSync(messageId, event);
 
-        sendEventFuture(event);
+        sendEventFuture(messageId, event);
 
         log.info("Successfully created product with productId: {}", productId);
 
         return productId;
     }
 
-    private void sendEventFuture(ProductCreatedEvent event){
+    private void sendEventFuture(String messageId, ProductCreatedEvent event){
 
-        var future = productProducer.sendEventFuture(event);
+        var future = productProducer.sendEventFuture(messageId, event);
 
         future.whenComplete((result, exception) -> {
             if(exception != null) {
@@ -53,8 +53,8 @@ public class ProductServiceImpl implements ProductService {
         });
     }
 
-    private void sendEventSync(ProductCreatedEvent event){
-        var result = productProducer.sendEventSync(event);
+    private void sendEventSync(String messageId, ProductCreatedEvent event){
+        var result = productProducer.sendEventSync(messageId, event);
         log.info("Successfully sent event sync to partition: {}, for topic: {}, with offset: {}",
                 result.getRecordMetadata().partition(),
                 result.getRecordMetadata().topic(),
